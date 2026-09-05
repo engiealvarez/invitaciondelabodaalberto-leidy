@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boda de aridis y Leidy</title>
+  <title>Boda de Aridis y Leidy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      /* Fondo grisáceo para las pantallas de PC, a los lados del celular */
       background-color: #e5e5e5; 
       color: #1e293b;
     }
@@ -27,13 +26,59 @@
       background-color: #f8f4ec;
     }
     
-    /* Ocultar barra de scroll pero permitir el scroll */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
     .no-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
+    }
+
+    .flor-decorativa {
+      position: absolute;
+      z-index: 20;
+      pointer-events: none;
+      filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    }
+    
+    .flor-lateral-izq { 
+      top: 50%; 
+      left: -80px; 
+      transform: translateY(-10%); 
+      width: 160px;
+    }
+    
+    .flor-lateral-der { 
+      top: 50%; 
+      right: -80px; 
+      transform: translateY(-80%) scaleX(-1);
+      width: 170px;
+    }
+    
+    .flor-calendario { 
+      top: -35px; 
+      left: -35px; 
+      width: 130px;
+    }
+    
+    .flor-libro { 
+      bottom: -30px; 
+      left: -30px; 
+      width: 140px;
+    }
+    
+    .flor-confirmar { 
+      bottom: -30px; 
+      right: -30px; 
+      transform: scaleX(-1);
+      width: 140px;
+    }
+
+    .flor-sobres {
+      top: -95px;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg); 
+      width: 165px;
     }
   </style>
 </head>
@@ -61,7 +106,7 @@
 
       <div class="w-[85%] mx-auto pb-4 mt-6">
         <p class="text-[10px] uppercase tracking-[0.1em] text-slate-600 font-bold mb-6">
-          Hemos reservado (1) cupos para ti
+          Hemos reservado (1) cupo para ti
         </p>
         <div class="w-full h-[1px] bg-slate-300/80"></div>
       </div>
@@ -74,13 +119,13 @@
     </button>
     <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=perfect-wedding-acoustic-112168.mp3"></audio>
 
-    <main class="w-full relative z-10 pt-[75px]">
+    <main class="w-full relative z-8 pt-[75px]">
       
       <section class="pb-2 px-4 text-center relative">
-        <p class="text-[12px] tracking-[0.35em] font-cinzel font-semibold uppercase text-[#071938] mb-6">SAVE THE DATE</p>
+        <p class="text-[12px] tracking-[0.70em] font-cinzel font-semibold uppercase text-[#071938] mb-10">¡NOS CASAMOSSS!</p>
 
         <div class="relative w-[85%] max-w-[320px] mx-auto mb-10 flex justify-center items-center z-10">
-          <img id="coupleImg" src="foto_pj.png" onerror="this.onerror=null; this.src='https://placehold.co/400x500/071938/ffffff?text=Falta+foto_pj.png';" alt="Arides & Leidy - Save The Date" class="w-full h-auto drop-shadow-2xl object-contain">
+          <img id="coupleImg" src="foto_pj.png" onerror="this.onerror=null; this.src='https://placehold.co/400x500/071938/ffffff?text=Falta+foto_pj.png';" alt="Aridis & Leidy - Save The Date" class="w-full h-auto drop-shadow-2xl object-contain">
         </div>
 
         <div class="relative mt-2 max-w-sm mx-auto z-10 flex flex-col items-center">
@@ -118,12 +163,15 @@
       </section>
 
       <section class="relative mx-4 my-8 p-7 rounded-[28px] bg-[#071938] text-white text-center shadow-2xl overflow-visible z-10">
+        <img src="flores.png" class="flor-decorativa flor-lateral-izq" alt="Decoración floral">
+        <img src="flores.png" class="flor-decorativa flor-lateral-der" alt="Decoración floral">
+        
         <h2 class="font-cinzel text-sm tracking-[0.25em] uppercase font-bold text-white mb-8">INFO DEL EVENTO</h2>
 
         <div class="grid grid-cols-2 gap-2 text-[10px] text-slate-200 mb-8 relative">
           <div class="pr-3 text-right border-r border-slate-500/50 leading-relaxed">
             <p class="font-semibold text-white mb-1 tracking-tight">Sr. y Sra. QUINTERO CONTRERAS</p>
-            <p class="text-slate-300">JOSE ARIDES QUINTERO</p>
+            <p class="text-slate-300">JOSE ARIDIS QUINTERO</p>
             <p class="text-slate-300"> CECILIA CONTRERAS MESA</p>
           </div>
           <div class="pl-3 text-left leading-relaxed">
@@ -138,7 +186,7 @@
         </p>
 
         <div class="my-6 space-y-2">
-          <h3 class="font-cinzel text-3xl text-white font-normal tracking-wider">AridIs Quintero</h3>
+          <h3 class="font-cinzel text-3xl text-white font-normal tracking-wider">Aridis Quintero</h3>
           <p class="text-[9px] uppercase tracking-[0.35em] text-slate-300 font-light">NOVIO</p>
           <p class="font-script text-6xl text-slate-400 my-2">and</p>
           <h3 class="font-cinzel text-3xl text-white font-normal tracking-wider">Leidy Baron</h3>
@@ -188,6 +236,8 @@
 
         <div class="relative mt-8 mb-6">
           <div class="bg-cream-calendar text-slate-800 p-5 rounded-2xl text-xs shadow-xl border border-amber-900/10 relative z-10">
+            <img src="flores.png" class="flor-decorativa flor-calendario" alt="Decoración floral">
+
             <p class="font-cinzel text-xl text-center text-[#071938] mb-2 font-bold">Octubre 2026</p>
             <div class="w-11/12 h-[1px] bg-slate-300/80 mb-3 mx-auto"></div>
 
@@ -215,7 +265,7 @@
         </div>
 
         <div class="mt-6 mb-2">
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Arides+%26+Leidy&dates=20261024T173000/20261025T010000&details=Celebra+con+nosotros+la+boda+de+Arides+y+Leidy.&location=Urbanizaci%C3%B3n+Natura%2C+Calle+5+%235A-64%2C+C%C3%BAcuta" target="_blank" rel="noopener noreferrer" class="inline-block text-xs text-slate-200 underline underline-offset-4 tracking-wider hover:text-white transition">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Aridis+%26+Leidy&dates=20261024T173000/20261025T010000&details=Celebra+con+nosotros+la+boda+de+Aridis+y+Leidy.&location=Urbanizaci%C3%B3n+Natura%2C+Calle+5+%235A-64%2C+C%C3%BAcuta" target="_blank" rel="noopener noreferrer" class="inline-block text-xs text-slate-200 underline underline-offset-4 tracking-wider hover:text-white transition">
             Añadir al Calendario
           </a>
         </div>
@@ -266,10 +316,13 @@
         </div>
       </section>
 
-      <section class="mx-4 my-8 p-7 rounded-[24px] bg-white shadow-xl text-center relative overflow-hidden z-10">
-        <div class="absolute top-0 left-0 w-full h-1.5 bg-[#071938]"></div>
+      <section class="mx-4 my-8 p-7 rounded-[24px] bg-white shadow-xl text-center relative overflow-visible z-10">
         
-        <div class="flex justify-center mb-4 mt-2">
+        <img src="flores.png" class="flor-decorativa flor-sobres" alt="Decoración floral">
+        
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-[#071938] rounded-t-[24px]"></div>
+        
+        <div class="flex justify-center mb-4 mt-4">
           <div class="p-3 bg-[#f8f4ec] rounded-full border border-slate-200">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#071938]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -288,6 +341,8 @@
       </section>
 
       <section class="mx-4 my-10 p-7 rounded-[24px] bg-white shadow-xl text-slate-800 z-10 relative">
+        <img src="flores.png" class="flor-decorativa flor-libro" alt="Decoración floral">
+
         <h2 class="font-cinzel text-center text-lg text-[#071938] font-bold mb-6 tracking-wide uppercase">LIBRO DE VISITAS</h2>
         
         <form id="guestbookForm" class="space-y-4 text-xs" onsubmit="handleGuestbook(event)">
@@ -308,6 +363,8 @@
       </section>
 
       <section class="mx-4 my-8 p-6 rounded-3xl bg-white shadow-xl text-slate-800 z-10 relative">
+        <img src="flores.png" class="flor-decorativa flor-confirmar" alt="Decoración floral">
+
         <h2 class="font-cinzel text-center text-base text-[#071938] font-bold mb-2 uppercase">CONFIRMA TU ASISTENCIA</h2>
         <p class="text-[11px] text-slate-500 text-center mb-6 leading-relaxed">
           Su presencia sería un honor para nosotros. Por favor confirme su asistencia.
@@ -332,7 +389,7 @@
           </div>
 
           <button type="submit" class="w-full py-3 bg-[#071938] text-white rounded-xl font-semibold uppercase tracking-wider hover:bg-blue-950 transition shadow-md">
-            Confirmar por WhatsApp
+            Enviar Confirmación
           </button>
         </form>
 
@@ -414,38 +471,54 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // --- Libro de Visitas (Simulación) ---
+    // --- Libro de Visitas (Simulación temporal) ---
     function handleGuestbook(e) {
       e.preventDefault();
       document.getElementById('guestbookForm').classList.add('hidden');
       document.getElementById('guestbookThanks').classList.remove('hidden');
     }
 
-    // --- Confirmación RSVP (WhatsApp) ---
-    function handleRSVP(e) {
+    // --- Confirmación RSVP (Google Sheets) ---
+    async function handleRSVP(e) {
       e.preventDefault();
       
-      // RECUERDA PONER TU NÚMERO DE WHATSAPP AQUÍ, ejemplo: "573001234567"
-      const phoneNumber = "573000000000"; 
+      // PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwQuGoQXOnvLoz8l3VSLFof6WlWyCHvIErIWImtS-AeQyGYWvoWANovk6Bk7bs9Ljbv/exec';
+      
+      const form = document.getElementById('rsvpForm');
+      const btn = form.querySelector('button[type="submit"]');
+      const originalBtnText = btn.innerText;
       
       const name = document.getElementById('rsvpName').value;
       const attendanceOption = document.querySelector('input[name="attendance"]:checked').value;
-      
-      const statusText = attendanceOption === 'yes' 
-        ? "¡Confirmo mi asistencia con mucho gusto!" 
-        : "Lamentablemente no podré asistir.";
-        
-      const message = `¡Hola! Soy *${name}*.%0A%0ARespecto a la invitación de la boda de Arides y Leidy:%0A*${statusText}*`;
-      
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-      
-      document.getElementById('rsvpForm').classList.add('hidden');
-      document.getElementById('rsvpThanks').classList.remove('hidden');
+      const statusText = attendanceOption === 'yes' ? 'Sí' : 'No';
 
-      // Redirigir a WhatsApp después de un breve momento
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-      }, 800);
+      // Mostrar estado de carga en el botón
+      btn.innerText = "Enviando...";
+      btn.disabled = true;
+
+      try {
+        const formData = new FormData();
+        formData.append('Nombre', name);
+        formData.append('Asistencia', statusText);
+
+        await fetch(scriptURL, { 
+          method: 'POST', 
+          body: formData 
+        });
+
+        // Ocultar formulario y mostrar mensaje de éxito
+        form.classList.add('hidden');
+        const thanksMsg = document.getElementById('rsvpThanks');
+        thanksMsg.innerText = "¡Gracias por confirmar tu asistencia!";
+        thanksMsg.classList.remove('hidden');
+        
+      } catch (error) {
+        console.error('Error!', error.message);
+        btn.innerText = originalBtnText;
+        btn.disabled = false;
+        alert("Hubo un problema al enviar tu confirmación. Por favor, intenta de nuevo.");
+      }
     }
   </script>
 </body>
