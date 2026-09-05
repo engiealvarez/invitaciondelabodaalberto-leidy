@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boda de aridis y Leidy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      /* Fondo grisáceo para las pantallas de PC, a los lados del celular */
+      background-color: #e5e5e5; 
+      color: #1e293b;
+    }
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
+    .font-serif-italic {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+    }
+    .bg-cream-calendar {
+      background-color: #f8f4ec;
+    }
+    
+    /* Ocultar barra de scroll pero permitir el scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-start min-h-screen">
+
+  <div id="app-container" class="w-full max-w-md relative min-h-screen shadow-2xl overflow-x-hidden no-scrollbar pb-10"
+       style="background-color: #f4f1eb; background-image: url('fondo.jpg'); background-size: 100% 1100px; background-position: top center; background-repeat: no-repeat;">
+
+    <div id="welcomeModal" class="fixed inset-0 z-50 max-w-md mx-auto bg-[#f4f1eb]/90 backdrop-blur-sm flex flex-col items-center justify-between pt-16 pb-12 px-6 text-center transition-opacity duration-700">
+      
+      <div class="w-full flex flex-col items-center flex-grow justify-center -mt-12">
+        <div class="relative flex flex-col items-center justify-center w-full z-10">
+          <h1 class="font-script text-[6.5rem] text-[#071938] leading-none z-10 transform -translate-x-6">Aridis</h1>
+          <span class="font-serif-italic text-3xl text-slate-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">and</span>
+          <h1 class="font-script text-[6.5rem] text-[#071938] leading-none z-10 transform translate-x-8 -mt-6">Leidy</h1>
+        </div>
+
+        <div class="relative w-full max-w-[340px] mx-auto cursor-pointer group flex flex-col items-center -mt-12 z-30" onclick="openInvitation()">
+          <img id="envelopeImg" src="tu_sobre_sin_fondo.png" onerror="this.onerror=null; this.src='https://placehold.co/340x400/071938/ffffff?text=Abrir+Invitaci%C3%B3n';" alt="Abrir Invitación" class="w-full h-auto drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 group-active:scale-95 rounded-2xl">
+          <p class="mt-4 text-[11px] uppercase tracking-[0.15em] text-[#334155] font-semibold max-w-[260px] leading-relaxed drop-shadow-md">
+            Haz clic en la carta para abrir la invitación
+          </p>
+        </div>
+      </div>
+
+      <div class="w-[85%] mx-auto pb-4 mt-6">
+        <p class="text-[10px] uppercase tracking-[0.1em] text-slate-600 font-bold mb-6">
+          Hemos reservado (1) cupos para ti
+        </p>
+        <div class="w-full h-[1px] bg-slate-300/80"></div>
+      </div>
+    </div>
+
+    <button id="musicToggle" onclick="toggleAudio()" aria-label="Controlar Música" class="fixed bottom-6 right-[calc(50%-180px)] md:right-[calc(50%-200px)] z-40 bg-[#071938] text-white w-14 h-14 rounded-full shadow-2xl border-2 border-white/10 flex items-center justify-center transition-transform active:scale-90">
+      <svg id="musicIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-90" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M9 18V5l12-2v13M9 18c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 5l12-2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=perfect-wedding-acoustic-112168.mp3"></audio>
+
+    <main class="w-full relative z-10 pt-[75px]">
+      
+      <section class="pb-2 px-4 text-center relative">
+        <p class="text-[12px] tracking-[0.35em] font-cinzel font-semibold uppercase text-[#071938] mb-6">SAVE THE DATE</p>
+
+        <div class="relative w-[85%] max-w-[320px] mx-auto mb-10 flex justify-center items-center z-10">
+          <img id="coupleImg" src="foto_pj.png" onerror="this.onerror=null; this.src='https://placehold.co/400x500/071938/ffffff?text=Falta+foto_pj.png';" alt="Arides & Leidy - Save The Date" class="w-full h-auto drop-shadow-2xl object-contain">
+        </div>
+
+        <div class="relative mt-2 max-w-sm mx-auto z-10 flex flex-col items-center">
+          <span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-script text-[10rem] text-[#071938]/10 pointer-events-none select-none z-0">&</span>
+          
+          <div class="relative z-10 text-center space-y-1 w-full">
+            <h1 class="font-cinzel text-[2.7rem] font-medium tracking-[0.05em] text-[#071938] leading-none">ARIDIS</h1>
+            <h1 class="font-cinzel text-[2.7rem] font-medium tracking-[0.05em] text-[#071938] leading-[1.1]">QUINTERO</h1>
+            <div class="h-4"></div>
+            <h2 class="font-cinzel text-[2.5rem] font-medium tracking-[0.05em] text-[#071938] leading-none">LEIDY BARON</h2>
+          </div>
+        </div>
+      </section>
+
+      <div class="mt-20 mb-8 flex justify-center items-center opacity-40">
+        <span class="w-12 h-[1px] bg-[#071938]"></span>
+        <span class="mx-2 text-[#071938] text-[10px]">✧</span>
+        <span class="w-12 h-[1px] bg-[#071938]"></span>
+      </div>
+
+      <section class="px-8 mb-16 text-center relative z-10">
+        <p class="font-serif-italic text-[15px] text-[#475569] leading-relaxed mb-6">
+          "Dios creó al primer hombre y a la primera mujer, y luego los casó. Él estableció el matrimonio para que fuera una unión muy especial entre un hombre y una mujer, y sirviera de base para la familia."
+        </p>
+        
+        <p class="font-cinzel text-xs text-[#071938] font-bold tracking-[0.2em] uppercase">
+          Génesis 1:27, 28; 2:18
+        </p>
+
+        <div class="mt-8 flex justify-center items-center opacity-40">
+          <span class="w-12 h-[1px] bg-[#071938]"></span>
+          <span class="mx-2 text-[#071938] text-[10px]">✧</span>
+          <span class="w-12 h-[1px] bg-[#071938]"></span>
+        </div>
+      </section>
+
+      <section class="relative mx-4 my-8 p-7 rounded-[28px] bg-[#071938] text-white text-center shadow-2xl overflow-visible z-10">
+        <h2 class="font-cinzel text-sm tracking-[0.25em] uppercase font-bold text-white mb-8">INFO DEL EVENTO</h2>
+
+        <div class="grid grid-cols-2 gap-2 text-[10px] text-slate-200 mb-8 relative">
+          <div class="pr-3 text-right border-r border-slate-500/50 leading-relaxed">
+            <p class="font-semibold text-white mb-1 tracking-tight">Sr. y Sra. QUINTERO CONTRERAS</p>
+            <p class="text-slate-300">JOSE ARIDES QUINTERO</p>
+            <p class="text-slate-300"> CECILIA CONTRERAS MESA</p>
+          </div>
+          <div class="pl-3 text-left leading-relaxed">
+            <p class="font-semibold text-white mb-1 tracking-tight">Sr. y Sra. BARON ALVAREZ</p>
+            <p class="text-slate-300">JULIO CARLOS BARON</p>
+            <p class="text-slate-300">ROSA DELIA ALVAREZ MUÑOZ</p>
+          </div>
+        </div>
+
+        <p class="text-[10px] tracking-[0.18em] uppercase text-slate-200 mb-10 max-w-[260px] mx-auto leading-relaxed">
+          TENEMOS LA ALEGRÍA DE INVITARLES A LA BODA DE NUESTROS HIJOS
+        </p>
+
+        <div class="my-6 space-y-2">
+          <h3 class="font-cinzel text-3xl text-white font-normal tracking-wider">AridIs Quintero</h3>
+          <p class="text-[9px] uppercase tracking-[0.35em] text-slate-300 font-light">NOVIO</p>
+          <p class="font-script text-6xl text-slate-400 my-2">and</p>
+          <h3 class="font-cinzel text-3xl text-white font-normal tracking-wider">Leidy Baron</h3>
+          <p class="text-[9px] uppercase tracking-[0.35em] text-slate-300 font-light">NOVIA</p>
+        </div>
+
+        <div class="mt-12 pt-2">
+          <p class="text-[10px] uppercase tracking-[0.25em] text-slate-200 mb-2 font-semibold">CEREMONIA</p>
+          <p class="text-[10px] text-slate-300 tracking-widest mb-4">A LAS 5:30 PM    SÁBADO</p>
+
+          <div class="flex items-center justify-center space-x-4 my-2">
+            <span class="font-cinzel text-5xl font-light text-white tracking-tighter">24</span>
+            <div class="w-[1px] h-10 bg-slate-400/60"></div>
+            <div class="text-left font-cinzel text-[11px] text-slate-200 tracking-widest leading-tight">
+              <p>OCTUBRE</p>
+              <p>2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative mx-4 my-8 p-7 rounded-[28px] bg-[#071938] text-white text-center shadow-2xl overflow-visible z-10">
+        <h2 class="font-cinzel text-sm tracking-[0.25em] uppercase font-bold text-white mb-6">INFO DE LA CELEBRACIÓN</h2>
+
+        <p class="text-[11px] font-semibold text-slate-200 uppercase tracking-[0.18em] mb-4 leading-relaxed">
+          LA CELEBRACIÓN SE LLEVARÁ<br>A CABO A LAS:
+        </p>
+
+        <div class="flex justify-center items-center space-x-8 text-[10px] text-slate-300 tracking-widest mb-3">
+          <span>SÁBADO</span>
+          <span>7:00 PM</span>
+        </div>
+
+        <div class="flex items-center justify-center space-x-4 my-2">
+          <span class="font-cinzel text-5xl font-light text-white tracking-tighter">24</span>
+          <div class="w-[1px] h-10 bg-slate-400/60"></div>
+          <div class="text-left font-cinzel text-[11px] text-slate-200 tracking-widest leading-tight">
+            <p>OCTUBRE</p>
+            <p>2026</p>
+          </div>
+        </div>
+
+        <div class="my-6">
+          <p class="text-xs text-slate-300 mb-1 font-light">Cuenta Regresiva</p>
+          <p id="countdown" class="text-xs font-medium text-slate-200 tracking-wide">Calculando...</p>
+        </div>
+
+        <div class="relative mt-8 mb-6">
+          <div class="bg-cream-calendar text-slate-800 p-5 rounded-2xl text-xs shadow-xl border border-amber-900/10 relative z-10">
+            <p class="font-cinzel text-xl text-center text-[#071938] mb-2 font-bold">Octubre 2026</p>
+            <div class="w-11/12 h-[1px] bg-slate-300/80 mb-3 mx-auto"></div>
+
+            <div class="grid grid-cols-7 gap-1 text-center font-medium text-[10px] text-slate-500 mb-2">
+              <span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span><span>Do</span>
+            </div>
+
+            <div class="grid grid-cols-7 gap-y-2 text-center font-normal text-xs text-slate-700">
+              <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
+              <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+              <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+              <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+              
+              <div class="relative flex items-center justify-center">
+                <svg class="w-6 h-6 text-[#071938] fill-current drop-shadow-sm" viewBox="0 0 24 24">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span class="absolute text-[10px] font-bold text-white leading-none">24</span>
+              </div>
+
+              <span>25</span>
+              <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 mb-2">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Arides+%26+Leidy&dates=20261024T173000/20261025T010000&details=Celebra+con+nosotros+la+boda+de+Arides+y+Leidy.&location=Urbanizaci%C3%B3n+Natura%2C+Calle+5+%235A-64%2C+C%C3%BAcuta" target="_blank" rel="noopener noreferrer" class="inline-block text-xs text-slate-200 underline underline-offset-4 tracking-wider hover:text-white transition">
+            Añadir al Calendario
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-14 mb-8 text-center px-4 relative z-10">
+        <h2 class="font-cinzel text-xl text-[#071938] font-bold tracking-[0.18em] mb-2 uppercase">DRESS CODE</h2>
+        <p class="font-serif-italic text-[#475569] text-sm tracking-wide">Vestimenta para la fiesta</p>
+      </section>
+
+      <section class="relative mx-4 my-8 p-7 rounded-[18px] bg-[#071938] text-white text-center shadow-xl overflow-visible z-10">
+        <div class="absolute -right-12 top-1/2 transform -translate-y-1/2 pointer-events-none z-20 w-32">
+          <img src="https://images.vexels.com/media/users/3/209930/isolated/preview/26cb12b596637b51b3cd944fdf4c8ef2-arreglo-de-acuarela-de-flores-azules.png" onerror="this.style.display='none'" alt="Decoración floral" class="w-full h-auto drop-shadow-2xl object-contain">
+        </div>
+
+        <h2 class="font-cinzel text-[17px] tracking-wider uppercase font-bold text-[#e2e8f0] mb-8 relative z-10">PROGRAMA DEL DÍA</h2>
+
+        <div class="relative max-w-[260px] mx-auto py-2 z-10">
+          <div class="absolute left-1/2 transform -translate-x-1/2 top-1 bottom-1 w-[1px] bg-slate-400/40"></div>
+
+          <div class="space-y-7 relative font-serif text-[13px]">
+            <div class="relative flex items-center justify-between">
+              <div class="w-1/2 pr-7 text-right font-bold text-[#e2e8f0] tracking-wider">5:30 PM</div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#e2e8f0] rounded-full z-10"></div>
+              <div class="w-1/2 pl-7 text-left text-[#cbd5e1] font-medium">Ceremonia</div>
+            </div>
+            <div class="relative flex items-center justify-between">
+              <div class="w-1/2 pr-7 text-right font-bold text-[#e2e8f0] tracking-wider">7:00 PM</div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#e2e8f0] rounded-full z-10"></div>
+              <div class="w-1/2 pl-7 text-left text-[#cbd5e1] font-medium">Recepción</div>
+            </div>
+            <div class="relative flex items-center justify-between">
+              <div class="w-1/2 pr-7 text-right font-bold text-[#e2e8f0] tracking-wider">8:00 PM</div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#e2e8f0] rounded-full z-10"></div>
+              <div class="w-1/2 pl-7 text-left text-[#cbd5e1] font-medium">Brindis y pastel</div>
+            </div>
+            <div class="relative flex items-center justify-between">
+              <div class="w-1/2 pr-7 text-right font-bold text-[#e2e8f0] tracking-wider">9:00 PM</div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#e2e8f0] rounded-full z-10"></div>
+              <div class="w-1/2 pl-7 text-left text-[#cbd5e1] font-medium">Plato principal</div>
+            </div>
+            <div class="relative flex items-center justify-between">
+              <div class="w-1/2 pr-7 text-right font-bold text-[#e2e8f0] tracking-wider">12:50 AM</div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#e2e8f0] rounded-full z-10"></div>
+              <div class="w-1/2 pl-7 text-left text-[#cbd5e1] font-medium">Despedida</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-4 my-8 p-7 rounded-[24px] bg-white shadow-xl text-center relative overflow-hidden z-10">
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-[#071938]"></div>
+        
+        <div class="flex justify-center mb-4 mt-2">
+          <div class="p-3 bg-[#f8f4ec] rounded-full border border-slate-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#071938]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+        </div>
+
+        <h2 class="font-cinzel text-center text-[15px] text-[#071938] font-bold mb-3 tracking-[0.15em] uppercase">Lluvia de Sobres</h2>
+        
+        <p class="text-[12px] text-[#475569] text-center leading-relaxed font-medium px-2 mb-2">
+          Nuestro mayor regalo es tu presencia en este día tan especial. 
+        </p>
+        <p class="text-[11px] text-slate-500 text-center leading-relaxed px-2">
+          Sin embargo, si deseas tener un detalle adicional con nosotros, contaremos con un buzón en la recepción para la tradicional lluvia de sobres.
+        </p>
+      </section>
+
+      <section class="mx-4 my-10 p-7 rounded-[24px] bg-white shadow-xl text-slate-800 z-10 relative">
+        <h2 class="font-cinzel text-center text-lg text-[#071938] font-bold mb-6 tracking-wide uppercase">LIBRO DE VISITAS</h2>
+        
+        <form id="guestbookForm" class="space-y-4 text-xs" onsubmit="handleGuestbook(event)">
+          <div>
+            <input type="text" id="guestName" placeholder="Ingresa tu nombre*" required class="w-full p-3.5 bg-white border border-slate-300 rounded-xl font-serif text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#071938]">
+          </div>
+          <div>
+            <textarea id="guestMessage" rows="3" placeholder="Escribe tus buenos deseos..." required class="w-full p-3.5 bg-white border border-slate-300 rounded-xl font-serif text-slate-700 placeholder-slate-400 focus:outline-none focus:border-[#071938] resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-3 bg-[#071938] text-white rounded-xl font-semibold uppercase tracking-wider hover:bg-blue-950 transition shadow-md">
+            Enviar Mensaje
+          </button>
+        </form>
+
+        <div id="guestbookThanks" class="hidden text-center text-xs font-semibold text-emerald-700 bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+          ¡Muchas gracias por dejar tu mensaje y acompañarnos en este día especial! ✨
+        </div>
+      </section>
+
+      <section class="mx-4 my-8 p-6 rounded-3xl bg-white shadow-xl text-slate-800 z-10 relative">
+        <h2 class="font-cinzel text-center text-base text-[#071938] font-bold mb-2 uppercase">CONFIRMA TU ASISTENCIA</h2>
+        <p class="text-[11px] text-slate-500 text-center mb-6 leading-relaxed">
+          Su presencia sería un honor para nosotros. Por favor confirme su asistencia.
+        </p>
+
+        <form id="rsvpForm" class="space-y-4 text-xs" onsubmit="handleRSVP(event)">
+          <div>
+            <label class="block text-slate-600 mb-1 font-medium">Tu nombre</label>
+            <input type="text" id="rsvpName" placeholder="Ingresa tu nombre" required class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#071938]">
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-slate-600 font-medium">¿Asistirás?</label>
+            <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50">
+              <input type="radio" name="attendance" value="yes" class="text-[#071938] focus:ring-[#071938]" checked>
+              <span class="text-slate-700">Asistiré con gusto</span>
+            </label>
+            <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50">
+              <input type="radio" name="attendance" value="no" class="text-[#071938] focus:ring-[#071938]">
+              <span class="text-slate-700">Lamentablemente no podré asistir</span>
+            </label>
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-[#071938] text-white rounded-xl font-semibold uppercase tracking-wider hover:bg-blue-950 transition shadow-md">
+            Confirmar por WhatsApp
+          </button>
+        </form>
+
+        <div id="rsvpThanks" class="hidden text-center text-xs font-semibold text-emerald-700 bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+          ¡Gracias! Te estamos redirigiendo a WhatsApp...
+        </div>
+      </section>
+
+      <section class="mx-4 my-10 text-center relative z-10">
+        <h2 class="font-cinzel text-[17px] text-[#071938] font-bold mb-4 tracking-wider uppercase">LUGAR DE LA CELEBRACIÓN</h2>
+        <p class="text-[13px] text-[#475569] leading-relaxed mb-6 font-medium">
+          Urbanización Natura, Calle 5 #5A-64,<br>
+          Parque Natura (junto al Centro<br>
+          Recreacional Villa Silvania), en la Vía<br>
+          Boconó.<br>
+          Zona social corponatura
+        </p>
+
+        <div class="relative w-full rounded-2xl overflow-hidden shadow-lg h-[280px] bg-[#f1f5f9] border border-slate-200">
+          <img src="mapa.png" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Falta+imagen+del+mapa+(mapa.png)';" alt="Mapa de ubicación" class="w-full h-full object-cover">
+          
+          <a href="https://maps.google.com/?q=Natura+Parque+Central+Torre+Begonias" target="_blank" rel="noopener noreferrer" class="absolute top-3 left-3 bg-white text-[#1a73e8] px-3.5 py-1.5 rounded-[4px] shadow-md text-[13px] font-bold flex items-center gap-1.5 hover:bg-slate-50 transition border border-gray-100 z-10">
+            Abrir en Maps
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-[15px] w-[15px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // --- Lógica del Modal Inicial y Música ---
+    function openInvitation() {
+      const modal = document.getElementById('welcomeModal');
+      modal.style.opacity = '0';
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 700);
+
+      const music = document.getElementById('bgMusic');
+      music.play().catch(e => console.log("Audio autoplay diferido por políticas del navegador"));
+    }
+
+    function toggleAudio() {
+      const music = document.getElementById('bgMusic');
+      const icon = document.getElementById('musicIcon');
+      if (music.paused) {
+        music.play();
+        icon.classList.add('animate-pulse');
+      } else {
+        music.pause();
+        icon.classList.remove('animate-pulse');
+      }
+    }
+
+    // --- Cuenta Regresiva ---
+    const targetDate = new Date("October 24, 2026 17:30:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "¡Hoy es el gran día!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText = `${days} días ${hours} h ${minutes} min ${seconds} seg`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // --- Libro de Visitas (Simulación) ---
+    function handleGuestbook(e) {
+      e.preventDefault();
+      document.getElementById('guestbookForm').classList.add('hidden');
+      document.getElementById('guestbookThanks').classList.remove('hidden');
+    }
+
+    // --- Confirmación RSVP (WhatsApp) ---
+    function handleRSVP(e) {
+      e.preventDefault();
+      
+      // RECUERDA PONER TU NÚMERO DE WHATSAPP AQUÍ, ejemplo: "573001234567"
+      const phoneNumber = "573000000000"; 
+      
+      const name = document.getElementById('rsvpName').value;
+      const attendanceOption = document.querySelector('input[name="attendance"]:checked').value;
+      
+      const statusText = attendanceOption === 'yes' 
+        ? "¡Confirmo mi asistencia con mucho gusto!" 
+        : "Lamentablemente no podré asistir.";
+        
+      const message = `¡Hola! Soy *${name}*.%0A%0ARespecto a la invitación de la boda de Arides y Leidy:%0A*${statusText}*`;
+      
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+      
+      document.getElementById('rsvpForm').classList.add('hidden');
+      document.getElementById('rsvpThanks').classList.remove('hidden');
+
+      // Redirigir a WhatsApp después de un breve momento
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+      }, 800);
+    }
+  </script>
+</body>
+</html>
