@@ -424,6 +424,9 @@
   </div>
 
   <script>
+    // PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT
+    const GOGGLE_SHEETS_SCRIPT_URL = 'TU_URL_DE_APLICACION_WEB_AQUI';
+
     // --- Lógica del Modal Inicial y Música ---
     function openInvitation() {
       const modal = document.getElementById('welcomeModal');
@@ -471,19 +474,45 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // --- Libro de Visitas (Simulación temporal) ---
-    function handleGuestbook(e) {
-      e.preventDefault();
-      document.getElementById('guestbookForm').classList.add('hidden');
-      document.getElementById('guestbookThanks').classList.remove('hidden');
-    }
-
-    // --- Confirmación RSVP (Google Sheets) ---
-    async function handleRSVP(e) {
+    // --- Libro de Visitas (Envío a Google Sheets) ---
+    async function handleGuestbook(e) {
       e.preventDefault();
       
-      // PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT CUANDO LO CREES
-      const scriptURL = 'TU_URL_DE_APLICACION_WEB_AQUI';
+      const form = document.getElementById('guestbookForm');
+      const btn = form.querySelector('button[type="submit"]');
+      const originalBtnText = btn.innerText;
+      
+      const name = document.getElementById('guestName').value;
+      const message = document.getElementById('guestMessage').value;
+
+      btn.innerText = "Enviando...";
+      btn.disabled = true;
+
+      try {
+        const formData = new FormData();
+        formData.append('Nombre', name);
+        formData.append('Mensaje', message);
+        formData.append('Formulario', 'Libro de Visitas'); 
+
+        await fetch(GOGGLE_SHEETS_SCRIPT_URL, { 
+          method: 'POST', 
+          body: formData 
+        });
+
+        form.classList.add('hidden');
+        document.getElementById('guestbookThanks').classList.remove('hidden');
+        
+      } catch (error) {
+        console.error('Error!', error.message);
+        btn.innerText = originalBtnText;
+        btn.disabled = false;
+        alert("Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo.");
+      }
+    }
+
+    // --- Confirmación RSVP (Envío a Google Sheets) ---
+    async function handleRSVP(e) {
+      e.preventDefault();
       
       const form = document.getElementById('rsvpForm');
       const btn = form.querySelector('button[type="submit"]');
@@ -493,7 +522,6 @@
       const attendanceOption = document.querySelector('input[name="attendance"]:checked').value;
       const statusText = attendanceOption === 'yes' ? 'Sí' : 'No';
 
-      // Mostrar estado de carga en el botón
       btn.innerText = "Enviando...";
       btn.disabled = true;
 
@@ -501,13 +529,13 @@
         const formData = new FormData();
         formData.append('Nombre', name);
         formData.append('Asistencia', statusText);
+        formData.append('Formulario', 'Confirmacion RSVP');
 
-        await fetch(scriptURL, { 
+        await fetch(GOGGLE_SHEETS_SCRIPT_URL, { 
           method: 'POST', 
           body: formData 
         });
 
-        // Ocultar formulario y mostrar mensaje de éxito
         form.classList.add('hidden');
         const thanksMsg = document.getElementById('rsvpThanks');
         thanksMsg.innerText = "¡Gracias por confirmar tu asistencia!";
@@ -523,4 +551,3 @@
   </script>
 </body>
 </html>
-
