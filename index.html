@@ -117,7 +117,7 @@
         <path d="M9 18V5l12-2v13M9 18c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 5l12-2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
-    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=perfect-wedding-acoustic-112168.mp3"></audio>
+    <audio id="bgMusic" loop src="cancion_boda.mp3"></audio>
 
     <main class="w-full relative z-8 pt-[75px]">
       
@@ -394,7 +394,7 @@
         </form>
 
         <div id="rsvpThanks" class="hidden text-center text-xs font-semibold text-emerald-700 bg-emerald-50 p-4 rounded-xl border border-emerald-200">
-          ¡Gracias! Te estamos redirigiendo a WhatsApp...
+          ¡Gracias!
         </div>
       </section>
 
@@ -482,8 +482,8 @@
     async function handleRSVP(e) {
       e.preventDefault();
       
-      // PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwQuGoQXOnvLoz8l3VSLFof6WlWyCHvIErIWImtS-AeQyGYWvoWANovk6Bk7bs9Ljbv/exec';
+      // PEGA AQUÍ LA URL DE TU GOOGLE APPS SCRIPT CUANDO LO CREES
+      const scriptURL = 'TU_URL_DE_APLICACION_WEB_AQUI';
       
       const form = document.getElementById('rsvpForm');
       const btn = form.querySelector('button[type="submit"]');
@@ -523,4 +523,3 @@
   </script>
 </body>
 </html>
-
